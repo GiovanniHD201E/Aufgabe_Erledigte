@@ -1,0 +1,38 @@
+# This file intends to show the first use of 'return' expression
+# It doesn't show to user, but the Python user maybe see the exchange of values in two variables...
+# In just two lines; in several languages there is need of three lines to achieve that.
+# Ich habe Permutationen mit itertools gekonnt
+from itertools import permutations
+
+print("Schreib 'wort()', für die erste erfolgreiche Wendung von 'return' Ausdruck erinnern")
+print('Schreib ListeNF = ["Gio", "VG", "Julia", "Angela"] '
+	'und dann permut(ListeNF)')
+
+meineListe = [1, 2, 3]
+mlp = permutations(meineListe)
+for i in mlp:
+	print(i)
+	
+ListeNF = ["Gio", "VG", "Julia", "Angela"]
+
+def permut(Liste=ListeNF):
+        MLP = permutations(Liste)
+        for Namen in MLP:
+                print(Namen)
+
+        print(MLP)
+
+
+        
+        
+
+def wort():
+    print('wort() musst 25 zurückgeben')
+    x, y = 2, 5
+    x, y = y, x
+    z = x**y
+    if z == 25:
+        print('Conforme previsto.')
+        print('Parabéns por essa pequena, porém suada conquista!')
+    print('E o resultado oficial é: return z =')
+    return z

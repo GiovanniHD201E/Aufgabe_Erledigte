@@ -1,0 +1,456 @@
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this file,
+   - You can obtain one at http://mozilla.org/MPL/2.0/. -->
+<!DOCTYPE html>
+<html platform="win"><head>
+  <meta http-equiv="Content-Security-Policy" content="default-src chrome:; img-src data: *; media-src *; object-src 'none'">
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+  <meta name="viewport" content="width=device-width; user-scalable=0">
+  <link rel="stylesheet" href="chrome://global/skin/aboutReader.css" type="text/css">
+<link rel="stylesheet" href="chrome://global/skin/narrate.css"><title>Python3-Tutorial: Parameterübergabe</title><link rel="shortcut icon" href="https://www.python-kurs.eu/favicon.ico"></head>
+
+<body class="dark serif loaded" style="--font-size:16px; --content-width:40em;">
+  <div class="top-anchor"></div>
+
+  <div id="toolbar" class="toolbar-container">
+    <div class="toolbar reader-toolbar">
+      <div class="reader-controls" articledir="ltr">
+        <button class="close-button button " aria-label="Leseansicht schließen"><span class="hover-label">Leseansicht schließen</span></button>
+        <ul class="dropdown style-dropdown">
+          <li>
+            <button class="dropdown-toggle button style-button" aria-label="Schrifteinstellungen"><span class="hover-label">Schrifteinstellungen</span></button>
+          </li>
+          <li class="dropdown-popup">
+            <div class="dropdown-arrow"></div>
+            <div class="font-type-buttons radiorow"><input id="radio-itemsans-serif-button" type="radio" class="radio-button" name="font-type"><label for="radio-itemsans-serif-button" class="sans-serif-button">Sans-serif</label><input id="radio-itemserif-button" type="radio" class="radio-button" name="font-type" checked="checked"><label for="radio-itemserif-button" class="serif-button" checked="true">Serif</label></div>
+            <div class="font-size-buttons buttonrow">
+              <button class="minus-button" title="Kleinere Schrift"></button>
+              <span class="font-size-value">3</span>
+              <button class="plus-button" title="Größere Schrift">
+            </button></div>
+            <div class="content-width-buttons buttonrow">
+               <button class="content-width-minus-button" title="Schmalerer Inhalt"></button>
+               <span class="content-width-value">5</span>
+               <button class="content-width-plus-button" title="Breiterer Inhalt">
+            </button></div>
+            <div class="line-height-buttons buttonrow">
+                <button class="line-height-minus-button" title="Kleinerer Zeilenabstand"></button>
+                <span class="line-height-value">4</span>
+                <button class="line-height-plus-button" title="Größerer Zeilenabstand">
+            </button></div>
+            <div class="color-scheme-buttons radiorow"><input id="radio-itemlight-button" type="radio" class="radio-button" name="color-scheme"><label for="radio-itemlight-button" class="light-button" title="Helles Farbschema">Hell</label><input id="radio-itemdark-button" type="radio" class="radio-button" name="color-scheme" checked="checked"><label for="radio-itemdark-button" class="dark-button" checked="true" title="Dunkles Farbschema">Dunkel</label><input id="radio-itemsepia-button" type="radio" class="radio-button" name="color-scheme"><label for="radio-itemsepia-button" class="sepia-button" title="Sepia-Farbschema">Sepia</label></div>
+          </li>
+        </ul>
+      <ul class="dropdown narrate-dropdown"><li><button class="dropdown-toggle button narrate-toggle" aria-label="Anhören"><span class="hover-label">Anhören</span></button></li><li class="dropdown-popup"><div class="narrate-row narrate-control"><button class="narrate-skip-previous" disabled="disabled" title="Zurück"></button><button class="narrate-start-stop" title="Wiedergeben"></button><button class="narrate-skip-next" disabled="disabled" title="Vor"></button></div><div class="narrate-row narrate-rate"><input class="narrate-rate-input" value="-25" step="5" max="100" min="-100" type="range" title="Geschwindigkeit"></div><div class="narrate-row narrate-voices"><div class="voiceselect voice-select"><button class="select-toggle" aria-controls="voice-options">
+      <span class="label">Stimme:</span> <span class="current-voice">Standard</span>
+    </button>
+    <div class="options" id="voice-options" role="listbox" style="max-height: 419px;"><button data-value="automatic" class="option selected" tabindex="-1" role="option" aria-selected="true">Standard</button><button data-value="urn:moz-tts:sapi:Microsoft Hedda Desktop - German?de-DE" class="option" tabindex="-1" role="option">Microsoft Hedda Desktop - German</button></div></div></div><div class="dropdown-arrow"></div></li></ul><button data-buttonid="pocket-button" class="button pocket-button" aria-label="In Pocket speichern" style="background-image: url(&quot;chrome://global/skin/reader/pocket.svg&quot;); background-size: 16px 16px;"><span class="hover-label">In Pocket speichern</span></button></div>
+    </div>
+  </div>
+
+  <div class="container" style="--line-height:1.6em;" dir="ltr">
+    <div class="header reader-header reader-show-element">
+      <a class="domain reader-domain" href="https://www.python-kurs.eu/python3_parameter.php" style="">python-kurs.eu</a>
+      <div class="domain-border"></div>
+      <h1 class="reader-title">Python3-Tutorial: Parameterübergabe</h1>
+      <div class="credits reader-credits"></div>
+      <div class="meta-data">
+        <div class="reader-estimated-time" dir="ltr">16-19 Minuten</div>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="content">
+      <div class="moz-reader-content reader-show-element"><div id="readability-page-1" class="page"><div id="content">
+
+
+<h2>Parameterübergabe: Parameter und Argumente</h2><p>
+Eine Funktion oder eine Prozedur benötigt üblicherweise Information über die
+Umgebung aus der heraus sie aufgerufen worden ist.
+Die Schnittstelle zwischen dieser Umgebung und der Funktion bzw. Prozedur, d.h.
+dem Funktionsrumpf (body) bzw. Prozedurrumpf, besteht aus speziellen Variablen,
+die man als Parameter bezeichnet.
+Indem man Parameter benutzt, kann man verschiedenste Objekte von "außen" innerhalb
+der Funktion benutzen. Die Syntax, wie man Parameter deklariert, und die Semantik,
+wie man die Argumente des Aufrufs an die formalen Parameter der Funktion oder Prozedur
+weiterleitet sind abhängig von der jeweiligen Programmiersprache.
+</p><p>
+Im vorigen Abschnitt haben wir mehrfach die Begriffe Parameter und Argumente verwendet.
+Bei einigen Lesern hat sich sicherlich der Eindruck eingestellt, dass die beiden Begriffe
+synonym sind. Auch in der Literatur werden diese Begriffe häufig synonym verwendet.
+Dennoch gibt es einen klar definierten Unterschied. Parameter stehen im Kopf der Funktion
+oder Prozedur, also in der Definition der Funktion oder Prozedur. Während Argumente beim
+Aufruf verwendet werden. Sie liefern die Werte für die formalen Parameter während der
+Laufzeit des Programmes.
+
+</p><h3>Wertübergabe oder Referenzübergabe</h3>
+<p>
+<img src="Python3-Tutorial%20Parameter%C3%BCbergabe-Dateien/relay-race.jpg" alt="Parameterübergabe als Staffellauf">
+Die Auswertungsstrategie für Argumente, das heißt wie die Argumente eines Funktionsaufrufes
+an die formalen Parameter der Funktion übergeben werden, unterscheidet sich von Programmiersprache 
+zu Programmiersprache. Die häufigsten Strategien sind die Wertübergabe (englisch: call by value)
+und Referenzübergabe (auch Variablenübergabe, englisch: call by reference)
+<br>
+</p><ul>
+    <li><b>Wertübergabe</b> (call by value)
+    <br>Bei der Wertübergabe stellt beim Aufruf einer Funktion jedes Argument
+    einen Wert dar, der ausgewertet wird. Dieser Wert wird dann an den
+    entsprechenden formalen Parameter übergeben, d.h. der Wert des i-ten
+    Ausdrucks (Parameter) wird beim Aufruf dem i-ten Parameter zugewiesen. Die
+    Ausdrücke können aus Literalen, Variablen oder beliebigen Ausdrücke (wie
+    z.B. "a + b + 7" bestehen. Werte von übergebenen Parametern können nicht
+    verändert werden!
+    </li><li><b>Referenzübergabe</b>(call by reference)<br>Bei der Referenzübergabe
+      werden, wie der Name impliziert, Referenzen (Speicheradressen)
+      übergeben, d.h. die Speicheradresse des jeweiligen tatsächlichen
+      Parameters. Der formale Parameter wird also zu einem Zeiger auf die
+      Speicheradresse des aufrufenden Parameters. Das bewirkt, dass alle
+      Änderungen an diesem Parameter innerhalb der Funktion sich auch im
+      aufrufenden Teil des Programmes auswirken. Das bedeutet aber auch, dass
+      die tatsächlichen Parameter beim Aufruf nur Ausdrücke sein können, deren
+      Adresse berechnet werden können, also Variablen. 
+</li></ul><p>
+    Anmerkung:    Die Namensparameter (call by name), wie sie in ALGOL 60 und COBOL genutzt wurde, 
+    ist heute nicht mehr üblich. 
+</p>
+<h3>und wie sieht es bei Python aus?</h3><p>
+In vielen Büchern oder Einführungen in Python liest man, dass Python den einen
+oder den anderen Übergabemechanismus habe, also "call by reference" oder "call
+by value". Was ist nun richtig?</p><p>
+<img src="Python3-Tutorial%20Parameter%C3%BCbergabe-Dateien/HumptyDumpty.jpg" alt="Humpty Dumpty">
+Die Erklärung liefert uns Humpty Dumpty:
+</p><p>
+<i>
+"Wenn ich ein Wort verwende", erwiderte Humpty Dumpty ziemlich geringschätzig,
+"dann bedeutet es genau, was ich es bedeuten lasse, und nichts anderes."
+</i></p><p><i>
+"Die Frage ist doch", sagte Alice, "ob du den Worten einfach so viele
+verschiedene Bedeutungen geben kannst".
+</i></p><p><i>
+"Die Frage ist", sagte Humpty Dumpty, "wer die Macht hat - und das ist
+alles. [...]"
+</i></p>Lewis Carroll, Through the Looking-Glass (Alles hinter den Spiegeln)<p></p><p>
+
+Doch was hat das mit unserer ursprünglichen Frage zu tun: 
+Die Autoren "dehnen" die Begriffe "call-by-value" und "call-by-reference", so dass sie passen, also
+"dann bedeutet es genau, was ich es bedeuten lasse, und nichts anderes."
+</p><p>Python benutzt einen Mechanismus, den man als "Call-by-Object" (auch
+"Call by Object Reference" oder "Call by Sharing") bezeichnet.</p><p>
+<img src="Python3-Tutorial%20Parameter%C3%BCbergabe-Dateien/parameter_uebergabe1.png" alt="Parameterübergabe">
+Wenn man unveränderliche Argumente wie Integers, Strings oder Tuples an eine Funktion übergibt,
+verhält sich die Übergabe nach außen hin wie eine Wertübergabe. Die Referenz auf das unveränderliche
+Objekt wird an den formalen Parameter der Funktion übertragen. Innerhalb der Funktion kann der Inhalt
+des Objektes nicht verändert werden, da es sich ja um unveränderliche Objekte handelt.
+</p><p>
+Anders verhält es sich jedoch, wenn man veränderliche Argumente überträgt. Auch sie werden per 
+Referenz an die Funktionsparameter übertragen. Allerdings können einzelne Elemente eines solchen
+veränderlichen Objektes im Funktionsrumpf verändert werden. Wenn wir beispielsweise eine Liste 
+an eine Funktion übergeben, müssen wir zwei Fälle unterscheiden: Die Elemente einer Liste können
+verändert werden, d.h. diese Änderung wirkt sich auch auf den Gültigkeitsbereich aus, aus dem
+die Funktion aufgerufen wurde. Wird allerdings ein komplett neues Element dem formalen Parameter
+zugewiesen, z.B. eine andere Liste, dann hat dies keine Auswirkungen auf die "alte" Liste, also
+auf die Liste, die beim Aufruf übergeben worden ist.
+</p><p>
+Zuerst wollen wir einen Blick auf die Integer-Variablen werfen.  
+
+Der Parameter innerhalb der Funktion ref_demo bleibt solange eine Referenz auf das Objekt, das
+übergeben wurde, wie keine Änderung am Parameter erfolgt. Sobald also ein neuer Wert an den Parameter
+überwiesen wird, erzeugt Python eine neue Speicherstelle für das Objekt und der formale Parameter
+zeigt nun auf diese Speicherstelle. Die Variable des Funktionsaufrufes wird dadurch nicht verändert,
+wie wir im folgenden Beispiel nachvollziehen können:
+</p><pre>def ref_demo(x):
+    print("x=",x," id=",id(x))
+    x=42
+    print("x=",x," id=",id(x))
+</pre>
+<p>
+In dem obigen Beispiel haben wir die Identitätsfunktion id() benutzt, die ein Objekt als Parameter hat.
+id(obj) liefert die "Identität" des Objektes obj. Diese Identität, der Rückgabewert der Funktion,
+ist ein Integer, der eindeutig und konstant für dieses Objekt ist, solange es im Programmablauf existiert.
+</p><p>
+<img src="Python3-Tutorial%20Parameter%C3%BCbergabe-Dateien/parameter_uebergabe2.png" alt="Parameterübergabe">
+Zwei Objekte, die gleichzeitig existieren müssen verschiedene Identitäten haben. Zwei verschiedene
+Objekte, die nicht-überlappende Lebensbereiche haben, dürfen allerdings den gleichen Identitätswert 
+haben. 
+</p><p>
+Wenn man die Funktion ref_demo() des obigen Beispiels aufruft, so wie wir es im grünen Block 
+weiter unten tun, können wir prüfen, was mit x passiert:
+Wir können im Hauptprogramm (main Gültigkeitsbereich) sehen, dass x die Identität 41902552 hat.
+In der ersten print-Anweisung der ref_demo()-Funktion, wird das x aus dem main-Gültigkeitsbereich
+benutzt, denn wir sehen, dass wir den gleichen Identitätswert für x erhalten. Wenn wir jedoch
+den Wert 42 dem x zuweisen, erhält x eine neue Identität, 41903752, das heißt eine separate
+Speicherstelle und das x in main bleibt unberührt, d.h. es hat weiterhin den Wert 9.
+</p><p>
+Dies bedeutet, dass sich Python zuerst wie Call-by-Reference verhält, aber sobald es einen Wert zugewiesen
+bekommen, verhält es sich wie bei Call-by-Value.
+Es wird also eine lokale Speicherposition für den formalen Parameter x angelegt und das x in main 
+behält seinen ursprünglichen Wert:
+
+</p><pre>&gt;&gt;&gt; x = 9
+&gt;&gt;&gt; id(x)
+9251936
+&gt;&gt;&gt; ref_demo(x)
+x= 9  id= 9251936
+x= 42  id= 9252992
+&gt;&gt;&gt; id(x)
+9251936
+&gt;&gt;&gt; 
+</pre>
+<h3>Seiteneffekte</h3><p>
+Von einem Funktionsaufruf erwartet man, dass die Funktion den korrekten Wert
+für die Argumente zurückliefert und sonst keine Effekte verursacht,
+z.B. Ändern von Speicherzuständen. Auch wenn manche Programmierer bewusst
+Seiteneffekte zur Lösung ihrer Probleme einsetzen, wird dies im Allgemeinen
+als schlechter Stil betrachtet.<br>  
+Schlimmer ist es jedoch, wenn Seiteneffekte auftreten, mit denen man nicht
+gerechnet hat, und dadurch Fehler verursacht werden. Dies kann auch in Python
+passieren. Dies kann dann geschehen, wenn Listen oder Dictionaries als
+Parameter übergeben werden.
+<br>
+Im folgenden Beispiel wird die Liste fib, die als aktueller Parameter an
+die Funktion s() übergeben wird, mit der Liste [47,11] verkettet.
+ 
+</p><pre>&gt;&gt;&gt; def s(liste):
+...     print(id(liste))
+...     liste += [47,11]
+...     print(id(liste))
+... 
+&gt;&gt;&gt; fib = [0,1,1,2,3,5,8]
+&gt;&gt;&gt; id(fib)
+24746248
+&gt;&gt;&gt; s(fib)
+24746248
+24746248
+&gt;&gt;&gt; id(fib)
+24746248
+&gt;&gt;&gt; fib
+[0, 1, 1, 2, 3, 5, 8, 47, 11]
+</pre><p>
+
+Man kann dies verhindern, wenn man statt einer Liste eine Kopie der Liste als
+Parameter übergibt. Mittels der Slicing Funktion kann man ganz leicht eine
+Kopie erzeugen.
+So wird in s(fib[:]) nicht die Liste fib sonder eine komplette Kopie
+übergeben. Der Aufruf verändert also nicht den Wert von fib, wie man im
+folgenden interaktiven Programmstück sehen kann:
+
+</p><pre>&gt;&gt;&gt; def s(liste):
+...     liste += [47,11]
+...     print(liste)
+... 
+&gt;&gt;&gt; fib = [0,1,1,2,3,5,8]
+&gt;&gt;&gt; s(fib[:])
+[0, 1, 1, 2, 3, 5, 8, 47, 11]
+&gt;&gt;&gt; fib
+[0, 1, 1, 2, 3, 5, 8]
+</pre>
+
+<h3>Übergabe von Argumenten</h3><p>
+Nicht nur Funktionen, sondern auch einem Python-Skript kann man Argumente übergeben. 
+Man bezeichnet diese als Kommandozeilenparameter.
+Ruft man ein Python-Skript aus einer Shell auf, werden die Argumente jeweils durch ein 
+Leerzeichen voneinander getrennt hinter dem Skriptnamen aufgeführt. Im Python-Skript 
+selber sind die Argumente, also die Kommandozeilenparameter, als Liste unter dem Namen 
+sys.argv abrufbar. Zusätzlich zu den Kommandozeilenparametern enthält diese Liste auch
+den Namen des aufrufenden Skriptes (Dateiname). Dieser steht als erster Eintrag in der Liste, also 
+sys.argv[0].
+<br>
+Das Skript (argumente.py) listet sämtliche mitgegebenen Argumente in der Standardausgabe auf:
+</p><pre> # Modul sys wird importiert:
+import sys                
+
+# Iteration über sämtliche Argumente:
+for eachArg in sys.argv:   
+        print(eachArg)
+</pre><p>
+
+									 Beispiel eines Aufrufes, falls das Skript unter argumente.py gespeichert worden ist:
+</p><pre>python argumente.py python kurs fuer anfaenger
+</pre><p>
+Dieser Aufruf erzeugt folgende Ausgabe
+</p><pre>argumente.py
+python
+kurs
+fuer
+anfaenger
+</pre>
+<h3>Variable Anzahl von Parametern</h3><p>
+Wir führen nun Funktionen ein, die mit einer beliebige Anzahl von Argumenten 
+aufgerufen werden können.
+Diejenigen mit Programmiererfahrungen in C und C++ kennen das Konzept als varargs. 
+</p><p>
+Es folgen einige Definitionen, die nicht wichtig für das Verständnis der weiteren 
+Beispiele dieses Kapitels sind: 
+Der Begriff Stelligkeit oder Arität bezeichnet in der Informatik die 
+Parameteranzahl von Funktionen, Prozeduren oder Methoden. 
+</p><p>
+Als variadische Funktion bezeichnet man in der Informatik Funktionen, 
+Prozeduren oder Methoden mit unbestimmter Arität, also solche, deren 
+Parameteranzahl nicht bereits in ihrer Deklaration festgelegt ist.
+</p><p>
+Ein Sternchen "*" wird in Python benutzt, um eine variable Anzahl von 
+Parametern zu kennzeichnen. Dazu wird das Sternchen unmittelbar vor einem 
+Variablennamen gestellt.
+
+</p><pre>&gt;&gt;&gt; def varpafu(*x): print(x)
+... 
+&gt;&gt;&gt; varpafu()
+()
+&gt;&gt;&gt; varpafu(34,"Do you like Python?", "Of course")
+(34, 'Do you like Python?', 'Of course')
+&gt;&gt;&gt; 
+</pre><p>
+
+Aus dem vorigen Beispiel lernen wir, dass die Argumente, die bei einem Funktionsaufruf
+von varpafu übergeben werden, in einem Tupel gesammelt werden. Auf dieses Tupel kann als
+"normale" Variable im Rumpf (body) der Funktion zugegriffen werden. Ruft man die Funktion
+ohne jegliche Argumente auf, so ist x ein leeres Tupel.
+</p><p>
+Manchmal ist es notwendig, dass man eine feste Anzahl von Positionsparametern benötigt, die von
+einer beliebigen Anzahl von Parametern gefolgt werden können. Dies ist möglich, aber die Positionsparameter
+müssen immer zuerst kommen. 
+</p><p>
+Im folgenden Beispiel benutzen wir einen Positionsparameter "city", der immer angegeben werden 
+muss, gefolgt von einer beliebigen Anzahl von weiteren Städten "other_cities":
+
+</p><pre>&gt;&gt;&gt; def locations(city, *other_cities): print(city, other_cities)
+... 
+&gt;&gt;&gt; locations("Berlin")
+Berlin ()
+&gt;&gt;&gt; locations("Berlin","Freiburg","Stuttgart","Konstanz","Frankfurt")
+Berlin ('Freiburg', 'Stuttgart', 'Konstanz', 'Frankfurt')
+&gt;&gt;&gt; 
+</pre>
+
+<h4>Übung</h4><p>
+Schreibe eine Funktion, die das arithmetische Mittel aus einer variablen Anzahl von 
+Werten berechnet.
+
+</p><h4>Lösung</h4>
+
+<pre>def arithmetic_mean(x, *l):
+    """ The function calculates the arithmetic mean of a non-empty
+        arbitrary number of numbers """
+    sum = x
+    for i in l:
+        sum += i
+
+    return sum / (1.0 + len(l))
+</pre><p>
+
+Man mag sich fragen, warum wir sowohl einen Positionsparameter "x" und einen Parameter
+für eine variable Anzahl von Werten "*l" in unserer Funktionsdefinition benutzt haben.
+Die Idee besteht darin, dass wir erzwingen wollten, dass unsere Funktion immer
+mit einer nichtleeren Anzahl von Argumenten aufgerufen wird. Dies ist notwendig, um eine
+Division durch 0 zu vermeiden, was einen Fehler verursachen würde. 
+</p><p>
+In der folgenden interaktiven Python-Sitzung, lernen wir, wie wir diese Funktion benutzen können.
+Dazu nehmen wir an, dass die Funktion arithmetic_mean in einer Datei mit dem Namen statistics.py
+gespeichert worden ist.
+
+</p><pre>&gt;&gt;&gt; from statistics import arithmetic_mean
+&gt;&gt;&gt; arithmetic_mean(4,7,9)
+6.666666666666667
+&gt;&gt;&gt; arithmetic_mean(4,7,9,45,-3.7,99)
+26.71666666666667
+</pre><p>
+
+Das funktioniert gut, aber die Sache hat einen Haken. Was, wenn jemand die Funktion 
+mit einer Liste statt mit einer variablen Zahl von Zahlen aufrufen will?
+</p><p>
+Im Folgenden sehen wir, dass dann ein Fehler verursacht wird:
+
+
+</p><pre>&gt;&gt;&gt; l = [4,7,9,45,-3.7,99]
+&gt;&gt;&gt; arithmetic_mean(l)
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+  File "statistics.py", line 8, in arithmetic_mean
+    return sum / (1.0 + len(l))
+TypeError: unsupported operand type(s) for /: 'list' and 'float'
+</pre><p>
+
+Die Lösung besteht in der Benutzung eines weiteren Sternchens:
+
+
+</p><pre>&gt;&gt;&gt; arithmetic_mean(*l)
+26.71666666666667
+&gt;&gt;&gt; 
+</pre>
+<h3>* in Funktionsaufrufen</h3><p>
+Ein Stern kann auch in einem Funktionsaufruf erscheinen, wie wir in der vorigen Übung 
+gesehen haben:
+Die Semantik ist in diesem Fall "invers" zu der Verwendung eines Sternes in der Funktionsdefinition: 
+Ein Argument wird entpackt und nicht gepackt. In anderen Worten: Die Elemente einer Liste
+oder eines Tuples werden vereinzelt:
+
+
+</p><pre>&gt;&gt;&gt; def f(x,y,z):
+...     print(x,y,z)
+... 
+&gt;&gt;&gt; p = (47,11,12)
+&gt;&gt;&gt; f(*p)
+(47, 11, 12)
+</pre><p>
+
+Es besteht wohl kaum die Notwendigkeit zu erwähnen, dass diese Art unsere
+Funktion aufzurufen komfortabler als die folgende ist:
+
+</p><pre>&gt;&gt;&gt; f(p[0],p[1],p[2])
+(47, 11, 12)
+&gt;&gt;&gt; 
+</pre><p>
+
+Zusätzlich, dass dieser Aufruf weniger komfortabel ist, ist die vorige Aufrufsart
+im allgemeinen Fall nicht anwendbar, d.h. wenn Listen "unbekannter" Längen verwendet werden
+sollen. "Unbekannt" bedeutet, dass die Länge erst während der Laufzeit bekannt ist und
+nicht während man das Skript schreibt.
+
+
+</p><h3>Beliebige Schlüsselwortparameter</h3><p>
+Es gibt auch einen Mechanismus für eine beliebige Anzahl von Schlüsselwortparametern.
+Um dies zu ermöglichen wurde als Notation ein doppeltes Sternchen "**" eingeführt: 
+
+
+</p><pre>&gt;&gt;&gt; def f(**args):
+...     print(args)
+... 
+&gt;&gt;&gt; f()
+{}
+&gt;&gt;&gt; f(de="Germnan",en="English",fr="French")
+{'fr': 'French', 'de': 'Germnan', 'en': 'English'}
+&gt;&gt;&gt; 
+</pre>
+
+<h3>Doppeltes Sternchen im Funktionsaufruf</h3><p>
+Das folgende Beispiel veranschaulicht die Verwendung von ** in einem Funktionsaufruf:
+
+</p><pre>&gt;&gt;&gt; def f(a,b,x,y):
+...     print(a,b,x,y)
+...
+&gt;&gt;&gt; d = {'a':'append', 'b':'block','x':'extract','y':'yes'}
+&gt;&gt;&gt; f(**d)
+('append', 'block', 'extract', 'yes')
+</pre><p>
+und jetzt in Kombination mit *: 
+</p><pre>&gt;&gt;&gt; t = (47,11)
+&gt;&gt;&gt; d = {'x':'extract','y':'yes'}
+&gt;&gt;&gt; f(*t, **d)
+(47, 11, 'extract', 'yes')
+&gt;&gt;&gt; 
+</pre>
+
+
+</div></div></div>
+    </div>
+
+    <div>
+      <div class="reader-message"></div>
+    </div>
+    <div aria-owns="toolbar"></div>
+  </div>
+
+
+
+</body></html>

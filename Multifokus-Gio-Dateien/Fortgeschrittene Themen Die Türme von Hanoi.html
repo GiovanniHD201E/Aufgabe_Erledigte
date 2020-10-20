@@ -1,0 +1,286 @@
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this file,
+   - You can obtain one at http://mozilla.org/MPL/2.0/. -->
+<!DOCTYPE html>
+<html platform="win"><head>
+  <meta http-equiv="Content-Security-Policy" content="default-src chrome:; img-src data: *; media-src *; object-src 'none'">
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+  <meta name="viewport" content="width=device-width; user-scalable=0">
+  <link rel="stylesheet" href="chrome://global/skin/aboutReader.css" type="text/css">
+<link rel="stylesheet" href="chrome://global/skin/narrate.css"><title>Fortgeschrittene Themen: Die Türme von Hanoi</title><link rel="shortcut icon" href="https://www.python-kurs.eu/favicon.ico"></head>
+
+<body class="sepia serif loaded" style="--font-size:18px; --content-width:40em;">
+  <div class="top-anchor"></div>
+
+  <div id="toolbar" class="toolbar-container scrolled">
+    <div class="toolbar reader-toolbar">
+      <div class="reader-controls" articledir="ltr">
+        <button class="close-button button " aria-label="Leseansicht schließen"><span class="hover-label">Leseansicht schließen</span></button>
+        <ul class="dropdown style-dropdown">
+          <li>
+            <button class="dropdown-toggle button style-button" aria-label="Schrifteinstellungen"><span class="hover-label">Schrifteinstellungen</span></button>
+          </li>
+          <li class="dropdown-popup">
+            <div class="dropdown-arrow"></div>
+            <div class="font-type-buttons radiorow"><input id="radio-itemsans-serif-button" type="radio" class="radio-button" name="font-type"><label for="radio-itemsans-serif-button" class="sans-serif-button">Sans-serif</label><input id="radio-itemserif-button" type="radio" class="radio-button" name="font-type" checked="checked"><label for="radio-itemserif-button" class="serif-button" checked="true">Serif</label></div>
+            <div class="font-size-buttons buttonrow">
+              <button class="minus-button" title="Kleinere Schrift"></button>
+              <span class="font-size-value">4</span>
+              <button class="plus-button" title="Größere Schrift">
+            </button></div>
+            <div class="content-width-buttons buttonrow">
+               <button class="content-width-minus-button" title="Schmalerer Inhalt"></button>
+               <span class="content-width-value">5</span>
+               <button class="content-width-plus-button" title="Breiterer Inhalt">
+            </button></div>
+            <div class="line-height-buttons buttonrow">
+                <button class="line-height-minus-button" title="Kleinerer Zeilenabstand"></button>
+                <span class="line-height-value">3</span>
+                <button class="line-height-plus-button" title="Größerer Zeilenabstand">
+            </button></div>
+            <div class="color-scheme-buttons radiorow"><input id="radio-itemlight-button" type="radio" class="radio-button" name="color-scheme"><label for="radio-itemlight-button" class="light-button" title="Helles Farbschema">Hell</label><input id="radio-itemdark-button" type="radio" class="radio-button" name="color-scheme"><label for="radio-itemdark-button" class="dark-button" title="Dunkles Farbschema">Dunkel</label><input id="radio-itemsepia-button" type="radio" class="radio-button" name="color-scheme" checked="checked"><label for="radio-itemsepia-button" class="sepia-button" checked="true" title="Sepia-Farbschema">Sepia</label></div>
+          </li>
+        </ul>
+      <ul class="dropdown narrate-dropdown"><li><button class="dropdown-toggle button narrate-toggle" aria-label="Anhören"><span class="hover-label">Anhören</span></button></li><li class="dropdown-popup"><div class="narrate-row narrate-control"><button class="narrate-skip-previous" disabled="disabled" title="Zurück"></button><button class="narrate-start-stop" title="Wiedergeben"></button><button class="narrate-skip-next" disabled="disabled" title="Vor"></button></div><div class="narrate-row narrate-rate"><input class="narrate-rate-input" value="-25" step="5" max="100" min="-100" type="range" title="Geschwindigkeit"></div><div class="narrate-row narrate-voices"><div class="voiceselect voice-select"><button class="select-toggle" aria-controls="voice-options">
+      <span class="label">Stimme:</span> <span class="current-voice">Standard</span>
+    </button>
+    <div class="options" id="voice-options" role="listbox" style="max-height: 124.667px;"><button data-value="automatic" class="option selected" tabindex="-1" role="option" aria-selected="true">Standard</button><button data-value="urn:moz-tts:sapi:Microsoft Hedda Desktop - German?de-DE" class="option" tabindex="-1" role="option">Microsoft Hedda Desktop - German</button></div></div></div><div class="dropdown-arrow"></div></li></ul><button data-buttonid="pocket-button" class="button pocket-button" aria-label="In Pocket speichern" style="background-image: url(&quot;chrome://global/skin/reader/pocket.svg&quot;); background-size: 16px 16px;"><span class="hover-label">In Pocket speichern</span></button></div>
+    </div>
+  </div>
+
+  <div class="container" style="--line-height:1.4em;" dir="ltr">
+    <div class="header reader-header reader-show-element">
+      <a class="domain reader-domain" href="https://www.python-kurs.eu/tuerme_von_hanoi.php">python-kurs.eu</a>
+      <div class="domain-border"></div>
+      <h1 class="reader-title">Fortgeschrittene Themen: Die Türme von Hanoi</h1>
+      <div class="credits reader-credits"></div>
+      <div class="meta-data">
+        <div class="reader-estimated-time" dir="ltr">10-12 Minuten</div>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="content">
+      <div class="moz-reader-content reader-show-element"><div id="readability-page-1" class="page"><div id="content">
+
+<div id="contextlinks"><p>Voriges Kapitel: <a href="https://www.python-kurs.eu/graphen_python.php">Graphen in Python</a></p><p>Nächstes Kapitel: <a href="https://www.python-kurs.eu/endlicher_automat.php">Endlicher Automat</a></p></div>
+<h2>Türme von Hanoi</h2>
+<br>
+<h3>Einführung</h3><p>
+Warum präsentieren wir in den weiterführenden Themen eine rekursive Python-Implementierung des mathematischen
+Knobelspiels "Türme von Hanoi"? Wir finden, dass es ein weiteres tolles Beispiel ist, an dem man sehen kann, 
+wie elegant sich auch scheinbar schwierige Probleme mittels Rekursion lösen lassen. Sollte jemand mit der 
+rekursiven Programmierung und rekursiven Funktionen noch nicht vertraut sein, so empfehlen wir unser Kapitel 
+"<a href="https://www.python-kurs.eu/python3_rekursive_funktionen.php">Rekursive Funktionen</a>", in dem man die Standard-Beispiel wie die
+Fakultätsfunktion und eine rekusive Berechnung der Fibonacci-Zahlen findet. Funktionen ganz allgemein behandeln wir in 
+"<a href="https://www.python-kurs.eu/python3_funktionen.php">Funktionen</a>".
+</p><p>Die üblichen Beispiele für Rekursion, also Fibonacci und 
+Fakultät, zeichnen sich dadurch aus, dass man auch relativ leicht eine 
+iterative Lösung bestimmen kann. Anders sieht es mit den Türmen von 
+Hanoi an. Eine rekursive Lösung ist deutlich leichter zu finden als eine
+ iterative, obwohl es natürlich auch hierzu eine iterative Lösung gibt. 
+</p><h3>Ursprung</h3>
+<div>
+<p><img src="Fortgeschrittene%20Themen%20Die%20T%C3%BCrme%20von%20Hanoi-Dateien/towers_of_hanoi.jpg" alt="Towers of Hanoi">
+<br>
+Eine alte Legende berichtet von einem Kloster oder einem Tempel irgenwo 
+in China oder Indien, in dem es drei Stäbe gibt, von denen einer mit 64 
+Goldscheiben besetzt ist. Die Scheiben haben verschiedene Größen und 
+sind der Größe nach übereinander gestapelt, d.h. jede Scheibe ist etwas 
+kleiner als die darunter liegende. Die Mönche oder Priester haben die 
+Aufgabe diesen Stapel von einem Stab auf einen anderen Stab zu bewegen. 
+</p><p>
+Aber eine Regel muss immer eingehalten werden: eine Scheibe darf unter 
+keinen Umständen auf einer kleineren Scheibe platziert werden. Aber man 
+sollte den Möchen keinesfalls die Daumen drücken, dass sie möglichst 
+bald fertig werden. Denn die Legende 
+sagt, dass das Kloster zu Staub zerfallen und die Welt enden wird, 
+sobald sie ihre Aufgabe erfüllt haben werden.
+</p><p>
+Aber es besteht kein Grund für Panik oder Angst, denn es ist nicht sehr 
+wahrscheinlich, dass sie es schaffen, denn es sind dazu 2<sup>64</sup> - 1 Züge nötig, also 18,446,744,073,709,551,615 Züge.  
+
+</p></div><h3>Spielregeln</h3><p>
+Obwohl die Regeln dieses Spieles recht einfach sind, ist die Lösung nicht so einfach zu finden.
+</p><p>
+Das Spiel benutzt drei Stäbe und eine Anzahl von Scheiben z.B. 9, die 
+auf die Stäbe gesteckt werden können. Anfänglich befinden sich alle 
+Scheiben in absteigender Größe auf einem Stab angeordnet, d.h. die 
+größte ist ganz unten und die kleinste ganz oben. Die Scheiben auf 
+diesem Stab bilden einen konischen Turm. 
+Die Aufgabe besteht darin, diesen Turm von einem Stab auf einen anderen 
+zu bewegen unter Beachtung der folgenden Regeln: 
+</p><ul>
+<li>In einem Zug darf immer nur eine Scheibe bewegt werden.</li>
+<li>Es kann immer nur die oberste Scheibe eines Stapels bewegt werden.</li>
+<li>Eine Scheibe kann auf einem anderen Stab nur abgelegt werden, wenn 
+der Stab leer ist, oder wenn die Scheibe kleiner als die oberste Scheibe
+ des Zielstapels ist.</li>
+</ul>
+
+<br>
+<h3>Anzahl der Züge</h3><p>
+Die minimal notwendige Anzahl von Zügen, die notwendig sind, um einen 
+Turm der Größe n von einem Stab auf einen anderen unter Einhaltung der 
+Regeln zu bewegen, lässt sich wie folgt berechnen: 
+2<sup>n</sup> - 1
+</p><h3>Lösungsfindung</h3>
+<p>
+Nach der obigen Formel wissen wir, dass wir 7 Züge benötigen, um einen Turm der Größe 3 von dem ganz linken Stab,
+den wir im folgenden SOURCE nennen werden, auf den Stab ganz rechts, den wir TARGET nennen werden, zu bewegen.
+</p><p>
+Der mittlere Stab, den wir mit AUX bezeichnen, wird als Hilfsstab benötigt, um Scheiben temporär zwischenzulagern.
+</p><p>
+<img src="Fortgeschrittene%20Themen%20Die%20T%C3%BCrme%20von%20Hanoi-Dateien/towers_of_hanoi_3_disks.jpg" alt="Towers of Hanoi">
+Bevor wir uns mit dem 3-Scheiben-Fall beschäftigen, so wie er im Bild 
+auf der rechten Seite dargestellt ist, schauen wir uns noch Türme der 
+Größe 1 (also nur eine Scheibe) und 2 an.
+</p><p>
+Ein Turm mit nur einer Scheibe lässt sich in trivialer Weise 
+verschieben. Man nimmt die Scheibe vom Stab SOURCE und bewegt sie auf 
+den Stab TARGET.
+</p><p>
+Schauen wir uns nun einen Turm der Größe 2 an, also zwei Scheiben. Es 
+gibt nur zwei Möglichkeiten die erste Scheibe, also die oberste Scheibe 
+auf dem Stapel SOURCE, zu verschieben.  
+Wir können sie entweder auf TARGET oder auf AUX bewegen.
+</p><ul>
+<li>Wir starten, indem wir die oberste Scheibe vom Stapel SOURCE auf den
+ Stapel TARGET bewegen. Dann haben wir zwei Möglichkeiten: Entweder 
+könnten wir die gleiche Scheibe wieder bewegen oder wir benutzen die 
+nächste Scheibe vom Stapel SOURCE für unseren nächsten Zug. Die gleiche 
+Scheibe nochmals zu bewegen macht keinen Sinn, denn dann könnten wir sie
+ nur auf SOURCE zurücklegen und wären wieder im Startzustand, oder wir 
+könnten sie auf AUX bewegen, doch das hätten wir bereits im ersten Zug 
+tun können. Also bleibt nur die letzte Scheibe auf dem Stapel SOURCE, 
+die wir auf den Stapel AUX legen. Wir können sie nicht auf TARGET legen,
+ da die dort befindliche Scheibe kleiner ist. Im nächsten Zug können wir
+ die kleine Scheibe von TARGET auf AUX bewegen. Wir haben im Prinzip die
+ Aufgabe gelöst, aber unser Ergebnisturm befindet sich auf dem Stab AUX 
+statt auf TARGET. Zur Erreichung dieses Zustandes haben wir übrigens die
+ maximale Anzahl von Zügen für n= 2 benötigt, also  2<sup>2</sup> - 1 = 3
+</li><li>
+Wir haben im vorigen Fall gesehen, dass es nicht erfolgreich ist, wenn 
+wir im ersten Schritt die kleinste Scheibe von 
+Stab SOURCE auf den Stab TARGET bewegen. Deswegen legen wir die Scheibe 
+auf den Stab AUX im ersten Schritt. Danach bewegen wir die zweite 
+Scheibe auf TARGET. Dann bewegen wir die kleinste Scheibe von AUX auf 
+TARGET und wir haben unsere Aufgabe gelöst!</li>
+
+</ul><p>
+In den Fällen n=1 und n=2 haben wir gesehen, dass es auf den ersten Zug 
+ankommt, ob wir erfolgreich mit der minimalen Anzahl von Zügen das 
+Rätsel lösen können. Mit unserer Formel können wir die minimale Anzahl 
+von Zügen berechnen, die notwendig ist einen Turm mit 3 Scheiben von 
+SOURCE Stab auf den TARGET Stab zu verschieben:  7 ( entspricht 2<sup>3</sup> - 1).
+<br>
+In dem Bild auf der rechten Seite kann man die Lösung für den Fall n = 3
+ sehen. Man beginnt also mit dem Zug, dass man die oberste Scheibe von 
+SOURCE auf TARGET bewegt. Startet man dagegen mit dem Zug TARGET nach 
+AUX, wird man nicht mehr in der Lage sein, die Aufgabe in weniger als 9 
+Zügen zu bewerkstelligen. 7 Züge ist aber das Ziel.
+<img src="Fortgeschrittene%20Themen%20Die%20T%C3%BCrme%20von%20Hanoi-Dateien/towers_of_hanoi_n_disks.jpg" alt="Towers of Hanoi, n disks"></p><p>
+Nummerieren wir die Scheiben mit D<sub>1</sub> (kleinste), D<sub>2</sub> and D<sub>3</sub> (größte) und bezeichnen wir
+die Stäbe mit S (SOURCE), A (AUX) und T (TARGET). Wir erkennen, dass wir in drei Zügen den Turm der Größe 2, d.h. die Scheiben D<sub>1</sub> und D<sub>2</sub> nach A bewegen. Nun können wir die Scheibe D<sub>3</sub>
+ nach T bewegen, wo sie endgültig positioniert bleibt. In den nächsten 
+drei Zügen bewegen wir den Turm von A, bestehend aus den Scheiben D<sub>2</sub>D<sub>1</sub> von A nach T auf die Scheibe D<sub>3</sub>.
+</p><p>
+Nun überlegen wir uns das Vorgehen zum Verschieben von Türme beliebiger Größe n von Stab S nach Stab T:
+</p><ul>
+<li>Bewege n - 1 Scheiben D<sub>n-1</sub> ... D<sub>1</sub> von S nach A. Scheibe D<sub>n</sub> ist noch auf Stab S</li>
+<li>Bewege D<sub>n</sub> nach T</li>
+<li>Bewege die n - 1 Scheiben D<sub>n-1</sub> ... D<sub>1</sub> von A nach T, d.h. diese Scheiben werden auf die Scheibe D<sub>n</sub> positioniert.</li>
+</ul><p>
+Der Algorithmus, den wir gerade definiert haben, ist ein rekursiver 
+Algorithmus um Türme mit n Scheiben zu verschieben.
+Wir werden diesen Algorithmus in Python als rekursive Funktion 
+implementieren.
+Der zweite Schritt ist eine einfache Bewegung einer Scheibe, aber um die
+ Schritte 1 und 3 zu verwirklichen, müssen wir den Algorithmus wieder 
+auf sich selbst anwenden. Die Berechnung endet in einer endlichen Anzahl
+ von Schritten, da die Rekursion jedesmal mit einem um 1 verminderten 
+Argument gegenüber der aufrufenden Funktion gestartet wird.
+Am Schluss ist noch eine einzelne zu bewegende Scheibe übrig.
+</p><h3>Rekursives Python-Programm</h3><p>
+Das folgende in Python geschriebene Skript enthält eine rekursive 
+Funktion namens "hanoi" zur Lösung des Spiels "Türme von Hanoi": 
+</p><pre>def hanoi(n, source, helper, target):
+    if n &gt; 0:
+        # move tower of size n - 1 to helper:
+        hanoi(n - 1, source, target, helper)
+        # move disk from source peg to target peg
+        if source:
+            target.append(source.pop())
+        # move tower of size n-1 from helper to target
+        hanoi(n - 1, helper, source, target)
+        
+source = [4,3,2,1]
+target = []
+helper = []
+hanoi(len(source),source,helper,target)
+
+print source, helper, target
+</pre><p>
+
+Anmerkung: AUX heißt in unserem Programm "helper".
+</p><p>
+Wir haben diese Funktion analog zum im vorigen Unterkapitel 
+geschriebenen implementiert. Wir bewegen also zuerst einen Turm der 
+Größe n-1 von "source" auf "helper". Dies geschieht durch den Aufruf 
+</p><pre>hanoi(n - 1, source, target, helper)</pre>
+<p>
+Danach bewegen wir die größte Scheibe von "source" auf "target mit der folgenden Anweisung:
+</p><pre>        if source:
+            target.append(source.pop())
+</pre><p>
+Danach bewegen wir den Turm von "helper" nach "target", d.h. wir setzen ihn auf die größte Scheibe und sind dann fertig:
+
+</p><pre>        hanoi(n - 1, helper, source, target)
+</pre><p>
+
+Wenn man nachvollziehen will, was während des Ablaufs passiert, so 
+empfehlen wir die folgende geänderte Version unseres Python-Programmes 
+zu verwenden. Wir haben nicht nur ein paar prints eingebaut sondern auch
+ die Datenstruktur geringfügig geändert. Wir übergeben jetzt nicht nur 
+die Stäbe mit Scheiben sondern Tuple an die Funktion. Jedes Tuple 
+enthält zum einen den Stab mit seinem Inhalt und als zweite Komponente, 
+die Funktion des Stabes:
+
+
+</p><pre>def hanoi(n, source, helper, target):
+    print "hanoi( ", n, source, helper, target, " called"
+    if n &gt; 0:
+        # move tower of size n - 1 to helper:
+        hanoi(n - 1, source, target, helper)
+        # move disk from source peg to target peg
+        if source[0]:
+            disk = source[0].pop()
+            print "moving " + str(disk) + " from " + source[1] + " to " + target[1]
+            target[0].append(disk)
+        # move tower of size n-1 from helper to target
+        hanoi(n - 1, helper, source, target)
+        
+source = ([4,3,2,1], "source")
+target = ([], "target")
+helper = ([], "helper")
+hanoi(len(source[0]),source,helper,target)
+
+print source, helper, target
+</pre>
+ 
+
+
+
+<div id="contextlinks"><p>Voriges Kapitel: <a href="https://www.python-kurs.eu/graphen_python.php">Graphen in Python</a></p><p>Nächstes Kapitel: <a href="https://www.python-kurs.eu/endlicher_automat.php">Endlicher Automat</a></p></div></div></div></div>
+    </div>
+
+    <div>
+      <div class="reader-message"></div>
+    </div>
+    <div aria-owns="toolbar"></div>
+  </div>
+
+
+
+</body></html>
